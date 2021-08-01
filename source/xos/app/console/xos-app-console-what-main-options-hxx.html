@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+=====================================================================
+=== Copyright (c) 1988-2020 $organization$
+===
+=== This software is provided by the author and contributors ``as is''
+=== and any express or implied warranties, including, but not limited to,
+=== the implied warranties of merchantability and fitness for a particular
+=== purpose are disclaimed. In no event shall the author or contributors
+=== be liable for any direct, indirect, incidental, special, exemplary,
+=== or consequential damages (including, but not limited to, procurement
+=== of substitute goods or services; loss of use, data, or profits; or
+=== business interruption) however caused and on any theory of liability,
+=== whether in contract, strict liability, or tort (including negligence
+=== or otherwise) arising in any way out of the use of this software,
+=== even if advised of the possibility of such damage.
+===
+===   File: xos-app-console-what-main_opt-hxx.html
+===
+=== Author: $author$
+===   Date: 11/22/2020
+=====================================================================
+-->
+<html>
+    <!--
+    =====================================================================
+    === head
+    =====================================================================
+    -->
+    <head>
+        <title>Xthenode - Create main options()</title>
+
+        <!--
+        =====================================================================
+        === style
+        =====================================================================
+        -->
+        <link rel="stylesheet" type="text/css" href="/xthenode/css/Xthenode.css"></link>
+        <style type="text/css">
+        </style>
+
+        <!--
+        =====================================================================
+        === script
+        =====================================================================
+        -->
+        <script type="text/javascript" src="/xthenode/js/Xthenode.js"></script>
+        <script type="text/javascript">
+        </script>
+    </head>
+    <!--
+    =====================================================================
+    === body
+    =====================================================================
+    -->
+    <body>
+        <a href="xos-app-console-what-main-options-hxx.html"><h3>Create main options()<b></b></h3></a>
+
+        <!--
+        =====================================================================
+        === form
+        =====================================================================
+        -->
+        <form
+         Name="Form" Action="xos-app-console-what-main_opt-hxx.t" Method="POST"
+         onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
+             <div class="form"><hr/>
+             <!--b>virtual </b><input name="ReturnType" value="int"/>
+             <input name="Which" value="this"/>
+             <input type="checkbox" name="is_Which" value="no" unchecked="checked">no</input><b>_</b>
+             <input name="Run" value="run"/>
+             <input type="checkbox" name="is_Run" value="no" unchecked="checked">no</input><br/>
+             <b>(</b>Params: <input name="Params" value=""/>
+             <input type="checkbox" name="is_Params" value="no" unchecked="checked">no</input><b>, </b>
+             StdParams: <input name="StdParams" value="int argc, char_t** argv, char_t** env"/>
+             <input type="checkbox" name="is_StdParams" value="no" unchecked="checked">no</input><b>) {</b><br/>
+             %ReturnType% <input name="Return" value="err"/>
+             <b> = </b><input name="ReturnValue" value="0"/><b>;...</b><br/>
+             Args: <input name="Args" value=""/>
+             <input type="checkbox" name="is_Args" value="no" unchecked="checked">no</input><b>, </b>
+             StdArgs: <input name="StdArgs" value="argc, argv, env"/>
+             <input type="checkbox" name="is_StdArgs" value="no" unchecked="checked">no</input><br/>
+             <b>...}</b><br/-->
+             <b></b>Framework:
+             <input name="Framework" value="xos"/>[xos]<b></b>
+             <input type="checkbox" name="is_Framework" value="no" unchecked="checked">no</input><br/>
+
+             <b>#define %FRAMEWORK%_</b><input name="App" value="app"></input>[app]<b></b>
+             <b></b><input type="checkbox" name="is_App" value="no" unchecked="checked">no</input><b></b><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_</b><input name="Console" value="console"></input>[console]<b></b>
+             <b></b><input type="checkbox" name="is_Console" value="no" unchecked="checked">no</input><b></b><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_%CONSOLE%_</b>
+             <input name="Application" value="application"/>[application]<b></b>
+             <input type="checkbox" name="is_Application" value="no" unchecked="checked">no</input><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_%CONSOLE%_%APPLICATION%_</b><input name="Main" value="main"></input>[main]<b></b>
+             <b></b><input type="checkbox" name="is_Main" value="no" unchecked="checked">no</input><b></b><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_%CONSOLE%_%APPLICATION%_%MAIN%_OPTIONS</b>
+             <input name="Parameters" value="s:long=name"/>[s:long=name]<b>;...</b>
+             <input type="checkbox" name="is_Parameters" value="no" unchecked="checked">no</input><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_%CONSOLE%_%APPLICATION%_%MAIN%_NAME_OPT "</b>
+             <input name="Long" value=""/><b>"</b>
+             <input type="checkbox" name="is_Long" value="no" unchecked="checked">no</input><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_%CONSOLE%_%APPLICATION%_%MAIN%_NAME_OPTARG_</b>
+             <select name="Required">
+             <option value="none">NONE</option>
+             <option value="optional" selected="selected">OPTIONAL</option>
+             <option value="required">REQUIRED</option>
+             <option value=""></option>
+             </select>[NONE]<b></b>
+             <input type="checkbox" name="is_Required" value="no" unchecked="checked">no</input><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_%CONSOLE%_%APPLICATION%_%MAIN%_NAME_OPTVAL_S "</b>
+             <input name="Short" value=""/><b>"</b>
+             <input type="checkbox" name="is_Short" value="no" unchecked="checked">no</input><br/>
+
+             <b>#define %FRAMEWORK%_%APP%_%CONSOLE%_%APPLICATION%_%MAIN%_NAME_OPTVAL_C '</b>
+             <input name="Char" value=""/><b>'</b>
+             <input type="checkbox" name="is_Char" value="no" unchecked="checked">no</input><br/>
+
+             <br/>
+             <b>class %MAIN%: public </b><input name="Extends_path" value=""></input>
+             <b>[%FRAMEWORK%::%APP%::%CONSOLE%]::</b><input name="Extends" value=""></input><b>[%MAIN%]</b>
+             <b> {</b><br/>
+             <b>&nbsp;&nbsp;&nbsp;&nbsp;...</b><br/>
+             <b>&nbsp;&nbsp;&nbsp;&nbsp;virtual const char_t* %Name%_option_usage(const char_t*&amp; optarg, const struct option* longopt)</b>
+             <input name="IsUsage" value="yes" type="checkbox" checked="checked"></input><b></b>
+             <br/>
+             <b>&nbsp;&nbsp;&nbsp;&nbsp;...</b><br/>
+             <b>} /// class %MAIN%</b><br/>
+
+             <br/>
+             Content-Type: <select name="content_type">
+             <option value="text/plain">text</option>
+             <option value="text/html">html</option>
+             <option value="text/xml">xml</option>
+             <option value="application/json">json</option>
+             <option value="application/javascript">javascript</option>
+             <option value=""></option>
+             </select><br/>
+             Action: <select name="FormAction">
+             <option value="xos-app-console-what-main-options-hxx.t">xos-app-console-what-main-options-hxx.t</option>
+             <option value="/xthenode-cgi/cgi">cgi parameters</option>
+             <option value=""></option>
+             </select><br/>
+             Method: <select name="FormMethod">
+             <option value="POST">POST</option>
+             <option value="GET">GET</option>
+             <option value=""></option>
+             </select><br/>
+             <br/>
+
+             <input type="submit" name="submit" value="submit"/><br/>
+             <hr/></div>
+
+            <table><tr>
+                <td><a href="."><b>..</b></a></td>
+                <td><a href="/xthenode/"><b>/xthenode/</b></a></td>
+                <td><a href="/xthenode/html/Xthenode.html"><b>Xthenode</b></a></td>
+                <td><a href="xos-app-console-main-which-run-hxx.html"><b>main run()</b></a></td>
+                <td><a href="xos-app-console-what-main-hxx.html"><b>main {}</b></a></td>
+            </tr></table>
+         </form>
+    </body>
+</html>
