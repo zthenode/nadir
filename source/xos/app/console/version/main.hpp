@@ -59,6 +59,13 @@ public:
 
 protected:
     /// ...run
+    virtual int default_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        if (!(err = this->all_version_run(argc, argv, env))) {
+            err = this->all_usage(argc, argv, env);
+        }
+        return err;
+    }
     virtual int version_run(int argc, char_t** argv, char_t** env) {
         ::xos::lib::version::string_t string;
         const ::xos::lib::version& version = version_t::which();

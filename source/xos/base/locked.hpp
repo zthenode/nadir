@@ -252,6 +252,39 @@ private:
 }; /// class try_lockt
 typedef try_lockt<> try_lock;
 
+/// class timed_lockt
+template <class TExtends = extended::lock, class TImplements = implement>
+class exported timed_lockt: virtual public TImplements, public TExtends {
+public:
+    typedef TImplements implements;
+    typedef TExtends extends;
+    typedef timed_lockt derives;
+
+    typedef xos::lock_status lock_status;
+    enum {
+        lock_success = xos::lock_success,
+        lock_failed = xos::lock_failed,
+        lock_busy = xos::lock_busy,
+        lock_timeout = xos::lock_timeout,
+        lock_interrupted = xos::lock_interrupted,
+        unlock_success = xos::unlock_success,
+        unlock_failed = xos::unlock_failed
+    };
+
+    /// constructor / destructor
+    timed_lockt(locked& _locked, mseconds_t mseconds): extends(_locked) {
+        lock_status status = lock_failed;
+        if (!(this->is_locked_ = !(lock_success != (status = this->locked_.timed_lock(mseconds))))) {
+            throw lock_exception(status);
+        }
+    }
+private:
+    timed_lockt(const timed_lockt& copy) {
+        throw exception(exception_unexpected);
+    }
+}; /// class timed_lockt
+typedef timed_lockt<> timed_lock;
+
 } /// namespace xos
 
 #endif /// ndef XOS_BASE_LOCKED_HPP

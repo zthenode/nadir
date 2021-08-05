@@ -183,6 +183,31 @@ protected:
 }; /// class try_acquiret
 typedef try_acquiret<> try_acquire;
 
+/// class timed_acquiret
+template <class TExtends = extend, class TImplements = implement>
+class exported timed_acquiret: virtual public TImplements, public TExtends {
+public:
+    typedef TImplements implements;
+    typedef TExtends extends;
+    typedef timed_acquiret derives;
+
+    /// constructor
+    timed_acquiret(acquired& _acquired, mseconds_t timeout): acquired_(_acquired) {
+        acquire_status status = acquire_failed;
+        if (acquire_success != (status = acquired_.timed_acquire(timeout))) {
+            throw acquire_exception(status);
+        }
+    }
+private:
+    timed_acquiret(const timed_acquiret& copy): acquired_(this_acquired_) {
+        throw exception(exception_unexpected);
+    }
+
+protected:
+    acquired this_acquired_, &acquired_;
+}; /// class timed_acquiret
+typedef timed_acquiret<> timed_acquire;
+
 /// class releaset
 template <class TExtends = extend, class TImplements = implement>
 class exported releaset: virtual public TImplements, public TExtends {
