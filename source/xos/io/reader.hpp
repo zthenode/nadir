@@ -16,7 +16,7 @@
 ///   File: reader.hpp
 ///
 /// Author: $author$
-///   Date: 3/10/2020, 7/15/2021
+///   Date: 3/10/2020, 8/24/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_IO_READER_HPP
 #define XOS_IO_READER_HPP

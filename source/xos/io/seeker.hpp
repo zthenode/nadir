@@ -16,7 +16,7 @@
 ///   File: seeker.hpp
 ///
 /// Author: $author$
-///   Date: 3/10/2020, 7/15/2021
+///   Date: 3/10/2020, 8/24/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_IO_SEEKER_HPP
 #define XOS_IO_SEEKER_HPP
@@ -64,9 +64,23 @@ typedef seekert<sequence> seeker;
 typedef seekert<byte_sequence> byte_seeker;
 typedef seekert<word_sequence> word_seeker;
 
-typedef seekert<char_sequence> char_seeker;
-typedef seekert<tchar_sequence> tchar_seeker;
-typedef seekert<wchar_sequence> wchar_seeker;
+///  Class: char_seekert
+template <class TImplements = char_sequence>
+class exported char_seekert: virtual public TImplements {
+public:
+    typedef TImplements implements;
+
+    typedef typename implements::char_t char_t;
+    typedef typename implements::what_t what_t;
+    typedef typename implements::sized_t sized_t;
+    typedef typename implements::endof_t endof_t;
+    static const endof_t endof = implements::endof;
+
+}; /// class char_seekert
+
+typedef char_seekert<char_sequence> char_seeker;
+typedef char_seekert<tchar_sequence> tchar_seeker;
+typedef char_seekert<wchar_sequence> wchar_seeker;
 
 } /// namespace io
 } /// namespace xos

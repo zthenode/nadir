@@ -16,7 +16,7 @@
 ///   File: reader.cpp
 ///
 /// Author: $author$
-///   Date: 4/10/2020
+///   Date: 4/10/2020, 8/20/2021
 ///////////////////////////////////////////////////////////////////////
 #include "xos/io/string/reader.hpp"
 
@@ -24,7 +24,10 @@ namespace xos {
 namespace io {
 namespace string {
 
-/// class readert
+///  Class: readert
+#if defined(XOS_IO_STRING_READER_INSTANCE)
+static reader the_reader;
+#endif /// defined(XOS_IO_STRING_READER_INSTANCE)
 
 } /// namespace string
 } /// namespace io

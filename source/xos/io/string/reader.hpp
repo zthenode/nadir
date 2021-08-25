@@ -16,7 +16,7 @@
 ///   File: reader.hpp
 ///
 /// Author: $author$
-///   Date: 4/10/2020, 7/15/2021
+///   Date: 4/10/2020, 8/24/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_IO_STRING_READER_HPP
 #define XOS_IO_STRING_READER_HPP
@@ -31,7 +31,7 @@ namespace string {
 /// class readert
 template 
 <typename TString = base::string,
- class TImplements = io::char_readert<io::seekert<io::char_sequencet
+ class TImplements = io::char_readert<io::char_seekert<io::char_sequencet
  <typename TString::char_t> > >, class TExtends = extend>
 class exported readert: virtual public TImplements, public TExtends {
 public:
@@ -39,9 +39,9 @@ public:
     typedef TExtends extends;
     typedef readert derives;
 
+    typedef TString string_t;
     typedef typename implements::what_t what_t;
     typedef typename implements::sized_t sized_t;
-    typedef stringt<sized_t> string_t;
     enum { from_begining = io::from_begining,
            from_end = io::from_end,
            from_current = io::from_current };
@@ -50,6 +50,8 @@ public:
     readert(const readert& copy): string_(copy.string_), tell_(0) {
     }
     readert(const string_t& string): string_(string), tell_(0) {
+    }
+    readert(): string_(this_string_), tell_(0) {
     }
     virtual ~readert() {
     }
@@ -120,6 +122,7 @@ public:
     }
 
 protected:
+    string_t this_string_;
     const string_t& string_;
     size_t tell_;
 }; /// class readert

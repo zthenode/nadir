@@ -16,7 +16,7 @@
 ///   File: chars.hpp
 ///
 /// Author: $author$
-///   Date: 3/7/2020, 7/31/2021
+///   Date: 3/7/2020, 8/24/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_BASE_CHARS_HPP
 #define XOS_BASE_CHARS_HPP

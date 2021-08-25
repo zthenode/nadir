@@ -16,7 +16,7 @@
 ///   File: writer.hpp
 ///
 /// Author: $author$
-///   Date: 3/10/2020, 8/3/2021
+///   Date: 3/10/2020, 8/24/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_IO_WRITER_HPP
 #define XOS_IO_WRITER_HPP

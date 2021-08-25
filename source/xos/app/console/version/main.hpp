@@ -42,6 +42,7 @@ public:
     typedef typename extends::writer_t writer_t;
     typedef typename extends::file_t file_t;
     typedef typename extends::string_t string_t;
+    typedef xos::io::string::readert<string_t> string_reader_t;
     typedef typename extends::char_reader_t char_reader_t;
     typedef typename extends::char_t char_t;
     typedef typename extends::end_char_t end_char_t;
