@@ -51,7 +51,7 @@ public:
     typedef xos::io::readert<seeker_t> reader_t;
     typedef xos::io::writert<sequence_t> writer_t;
     typedef xos::io::char_sequencet<TChar> char_sequence_t;
-    typedef xos::io::seekert<char_sequence_t> char_seeker_t;
+    typedef xos::io::char_seekert<char_sequence_t> char_seeker_t;
     typedef xos::io::char_readert<char_seeker_t> char_reader_t;
     typedef xos::io::char_writert<char_sequence_t> char_writer_t;
     typedef xos::io::string::readert<char_reader_t> string_reader_t;

@@ -38,6 +38,8 @@ public:
     typedef TExtends extends;
     typedef maint derives;
 
+    typedef typename extends::sequence_t sequence_t;
+    typedef typename extends::seeker_t seeker_t;
     typedef typename extends::reader_t reader_t;
     typedef typename extends::writer_t writer_t;
     typedef typename extends::file_t file_t;
