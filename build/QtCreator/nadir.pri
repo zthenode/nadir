@@ -16,10 +16,12 @@
 #   File: nadir.pri
 #
 # Author: $author$
-#   Date: 7/31/2021
+#   Date: 8/29/2021
 #
 # Build specific QtCreator .pri file for nadir
 ########################################################################
+# depends rostra;fila;crono
+
 contains(BUILD_OS,Uname) {
 UNAME = $$system(uname)
 
@@ -68,11 +70,57 @@ build_rostra_FRAMEWORKS += \
 build_rostra_LIBS += \
 
 ########################################################################
+# fila
+#
+# pkg-config --cflags --libs fila
+#
+
+# build fila INCLUDEPATH
+#
+build_fila_INCLUDEPATH += \
+
+# build fila DEFINES
+#
+build_fila_DEFINES += \
+
+# build fila FRAMEWORKS
+#
+build_fila_FRAMEWORKS += \
+
+# build fila LIBS
+#
+build_fila_LIBS += \
+
+########################################################################
+# crono
+#
+# pkg-config --cflags --libs crono
+#
+
+# build crono INCLUDEPATH
+#
+build_crono_INCLUDEPATH += \
+
+# build crono DEFINES
+#
+build_crono_DEFINES += \
+
+# build crono FRAMEWORKS
+#
+build_crono_FRAMEWORKS += \
+
+# build crono LIBS
+#
+build_crono_LIBS += \
+
+########################################################################
 # nadir
 
 # build nadir INCLUDEPATH
 #
 build_nadir_INCLUDEPATH += \
+$${build_crono_INCLUDEPATH} \
+$${build_fila_INCLUDEPATH} \
 $${build_rostra_INCLUDEPATH} \
 
 
@@ -80,17 +128,23 @@ $${build_rostra_INCLUDEPATH} \
 #
 build_nadir_DEFINES += \
 $${build_rostra_DEFINES} \
+$${build_fila_DEFINES} \
+$${build_crono_DEFINES} \
 
 
 # build nadir FRAMEWORKS
 #
 build_nadir_FRAMEWORKS += \
+$${build_crono_FRAMEWORKS} \
+$${build_fila_FRAMEWORKS} \
 $${build_rostra_FRAMEWORKS} \
 
 
 # build nadir LIBS
 #
 build_nadir_LIBS += \
+$${build_crono_LIBS} \
+$${build_fila_LIBS} \
 $${build_rostra_LIBS} \
 
 
