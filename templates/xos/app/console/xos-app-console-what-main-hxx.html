@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+=====================================================================
+=== Copyright (c) 1988-2021 $organization$
+===
+=== This software is provided by the author and contributors ``as is'' 
+=== and any express or implied warranties, including, but not limited to, 
+=== the implied warranties of merchantability and fitness for a particular 
+=== purpose are disclaimed. In no event shall the author or contributors 
+=== be liable for any direct, indirect, incidental, special, exemplary, 
+=== or consequential damages (including, but not limited to, procurement 
+=== of substitute goods or services; loss of use, data, or profits; or 
+=== business interruption) however caused and on any theory of liability, 
+=== whether in contract, strict liability, or tort (including negligence 
+=== or otherwise) arising in any way out of the use of this software, 
+=== even if advised of the possibility of such damage.
+===
+===   File: xos-app-console-what-main-hxx.html
+===
+=== Author: $author$
+===   Date: 2/22/2021
+=====================================================================
+-->
+<html>
+    <!--
+    =====================================================================
+    === head
+    =====================================================================
+    -->
+    <head>
+        <title>Xthenode - Create main {}</title>
+
+        <!--
+        =====================================================================
+        === style
+        =====================================================================
+        -->
+        <link rel="stylesheet" type="text/css" href="/xthenode/css/Xthenode.css"></link>
+        <style type="text/css">
+        </style>
+    
+        <!--
+        =====================================================================
+        === script
+        =====================================================================
+        -->
+        <script type="text/javascript" src="/xthenode/js/Xthenode.js"></script>
+        <script type="text/javascript">
+        </script>
+    </head>
+    <!--
+    =====================================================================
+    === body
+    =====================================================================
+    -->
+    <body>
+        <a href="xos-app-console-what-main-hxx.html"><h3>Create main {}</h3></a>
+
+        <!--
+        =====================================================================
+        === form
+        =====================================================================
+        -->
+        <form
+         Name="Form" Action="xos-app-console-what-main-hxx.t" Method="POST" 
+         onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
+             <div class="form"><hr/>
+
+             <!--Framework: <input name="Framework" value=""></input>[xos]
+             <input type="checkbox" name="is_Framework" value="no" unchecked="checked">no</input>
+             <br/-->
+             <!--What: <input name="What" value=""></input>
+             <input type="checkbox" name="is_What" value="no" unchecked="checked">no</input>
+             <br/-->
+
+            <b>namespace </b><input name="Framework" value=""></input><b>%Framework%[xos] {</b>
+            <b></b><input type="checkbox" name="is_Framework" value="no" unchecked="checked">no</input><b></b><br/>
+
+            <b>namespace </b><input name="Application" value=""></input><b>%Application%[app/console] {</b>
+            <b></b><input type="checkbox" name="is_Application" value="no" unchecked="checked">no</input><b></b><br/>
+
+            <b>namespace </b><input name="What" value=""></input><b>%What%[what] {</b>
+            <b></b><input type="checkbox" name="is_What" value="no" unchecked="checked">no</input><b></b><br/>
+
+            <br/>
+            <b>class </b><input name="Main" value=""></input><b>%Main%[main]</b><br/>
+            <b>: public </b><input name="Extends_path" value=""></input><b>[%Framework%::%Application%::%What%]::</b>
+            <b></b><input name="Extends" value=""></input><b>%Main%</b>
+            <b> {</b>
+            <b></b><input type="checkbox" name="is_Main" value="no" unchecked="checked">no</input><b></b>
+            <br/>
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;%Main%(): </b><input name="Which" value=""></input>
+            <b></b><input type="checkbox" name="is_Which" value="no" unchecked="checked">no</input><b></b>
+            <b>%Which%[default]_run(0)</b>
+            <b></b><input type="checkbox" name="Is_run" value="no" checked="checked">no</input><b> {}</b>
+            <br/>
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;...</b><br/>
+            <b>}; /// class %Main%</b><br/>
+            <br/>
+            <b>} /// namespace %What%</b><br/>
+            <b>} /// namespace %Application%</b><br/>
+            <b>} /// namespace %Framework%</b><br/>
+
+             Template: <select name="FormTemplate">
+             <option value="xos-app-console-what-main-hxx.t">xos-app-console-what-main-hxx.t</option>
+             <option value="xos-app-console-what-main-cxx.t">xos-app-console-what-main-cxx.t</option>
+             <option value=""></option>
+             <option value="xos-app-console-what-main_opt-hxx.t">xos-app-console-what-main_opt-hxx.t</option>
+             <option value="xos-app-console-what-main_opt-cxx.t">xos-app-console-what-main_opt-cxx.t</option>
+             <option value=""></option>
+             <option value="/xthenode-cgi/cgi">cgi parameters</option>
+             <option value=""></option>
+             </select><br/>
+    
+             <br/>
+             Content-Type: <select name="content_type">
+             <option value="text/plain">text</option>
+             <option value="text/html">html</option>
+             <option value="text/xml">xml</option>
+             <option value="application/json">json</option>
+             <option value="application/javascript">javascript</option>
+             <option value=""></option>
+             </select><br/>
+             Action: <select name="FormAction">
+             <option value="xos-app-console-what-main-hxx.t">xos-app-console-what-main-hxx.t</option>
+             <option value=""></option>
+             <option value="/sthenode-cgi/cgi">cgi parameters</option>
+             <option value=""></option>
+             </select><br/>
+             Method: <select name="FormMethod">
+             <option value="POST">POST</option>
+             <option value="GET">GET</option>
+             <option value=""></option>
+             </select><br/>
+             <br/>
+    
+             <input type="submit" name="submit" value="submit"/><br/>
+             <hr/></div>
+
+            <table><tr>
+                <td><a href="."><b>..</b></a></td>
+                <td><a href="/xthenode/"><b>/xthenode/</b></a></td>
+                <td><a href="/xthenode/html/Xthenode.html"><b>Xthenode</b></a></td>
+                <td><a href="xos-app-console-what-main-options-hxx.html"><b>main options()</b></a></td>
+                <td><a href="xos-app-console-main-which-run-hxx.html"><b>main run()</b></a></td>
+            </tr></table>
+         </form>
+    </body>
+</html>
