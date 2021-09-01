@@ -16,7 +16,7 @@
 ///   File: stream.hpp
 ///
 /// Author: $author$
-///   Date: 7/16/2021
+///   Date: 7/16/2021, 9/1/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_IO_STREAM_HPP
 #define XOS_IO_STREAM_HPP
@@ -31,8 +31,8 @@ namespace io {
 template <class TImplements = writert<readert<seekert<sequencet<> > > > >
 class exported streamt: virtual public TImplements {
 public:
-    typedef TImplements implements, Implements;
-    typedef streamt derives, Derives; 
+    typedef TImplements Implements, implements;
+    typedef streamt Derives, derives; 
     
     /// constructors / destructor
     virtual ~streamt() {
@@ -43,6 +43,9 @@ typedef streamt<> stream;
 typedef streamt<char_writert<char_readert<seekert<char_sequence> > > > char_stream;
 typedef streamt<char_writert<char_readert<seekert<tchar_sequence> > > > tchar_stream;
 typedef streamt<char_writert<char_readert<seekert<wchar_sequence> > > > wchar_stream;
+
+typedef streamt<writert<readert<seekert<byte_sequence> > > > byte_stream;
+typedef streamt<writert<readert<seekert<word_sequence> > > > word_stream;
 
 } /// namespace io
 } /// namespace xos

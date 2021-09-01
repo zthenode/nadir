@@ -61,6 +61,33 @@ protected:
 }; /// class wrappert
 typedef wrappert<> wrapper;
 
+namespace base {
+/// class wrappedt
+template 
+<typename TWrapped = pointer_t, 
+ class TExtends = xos::wrappert<TWrapped>, class TImplements = typename TExtends::implements>
+
+class exported wrappedt: virtual public TImplements, public TExtends {
+public:
+    typedef TImplements implements;
+    typedef TExtends extends;
+    typedef wrappedt derives;
+
+    typedef TWrapped wrapped_t;
+    
+    /// constructor / destructor
+    wrappedt(const wrappedt& copy): extends(copy) {
+    }
+    wrappedt(wrapped_t& wrapped): extends(wrapped) {
+    }
+    wrappedt() {
+    }
+    virtual ~wrappedt() {
+    }
+    
+}; /// class wrappedt
+} /// namespace base
+
 } /// namespace xos
 
 #endif /// ndef XOS_BASE_WRAPPED_HPP 

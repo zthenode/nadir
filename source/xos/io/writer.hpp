@@ -16,7 +16,7 @@
 ///   File: writer.hpp
 ///
 /// Author: $author$
-///   Date: 3/10/2020, 8/24/2021
+///   Date: 3/10/2020, 9/1/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_IO_WRITER_HPP
 #define XOS_IO_WRITER_HPP
@@ -30,7 +30,7 @@ namespace io {
 template <class TImplements = sequence>
 class exported writert: virtual public TImplements {
 public:
-    typedef TImplements implements;
+    typedef TImplements Implements, implements;
 
     typedef typename implements::what_t what_t;
     typedef typename implements::sized_t sized_t;
@@ -98,7 +98,7 @@ typedef writert<word_sequence> word_writer;
 template <class TSequence = char_sequence, class TImplements = writert<TSequence> >
 class exported char_writert: virtual public TImplements {
 public:
-    typedef TImplements implements;
+    typedef TImplements Implements, implements;
 
     typedef typename implements::what_t what_t;
     typedef typename implements::sized_t sized_t;

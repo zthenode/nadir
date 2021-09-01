@@ -16,18 +16,20 @@
 ///   File: array.hpp
 ///
 /// Author: $author$
-///   Date: 3/30/2020, 7/13/2021
+///   Date: 3/30/2020, 9/1/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_BASE_ARRAY_HPP
 #define XOS_BASE_ARRAY_HPP
 
 #include "xos/base/base.hpp"
 
+#define XOS_ARRAY_DEFAULT_SIZE 128
+
 namespace xos {
 
 /// class arrayt
 template 
-<typename TWhat = char, size_t VDefaultSize = 128,
+<typename TWhat = char, size_t VDefaultSize = XOS_ARRAY_DEFAULT_SIZE,
  class TExtends = extend, class TImplements = typename TExtends::implements>
 
 class exported arrayt: virtual public TImplements, public TExtends {
@@ -297,7 +299,41 @@ typedef xos::arrayt<wchar_t> wchar_array;
 typedef xos::arrayt<byte_t> byte_array;
 typedef xos::arrayt<word_t> word_array;
 
+/// class arrayt
+template 
+<typename TWhat = char, 
+ typename TSize = size_t, TSize VDefaultSize = XOS_ARRAY_DEFAULT_SIZE,
+ class TExtends = xos::arrayt<TWhat, VDefaultSize>, 
+ class TImplements = typename TExtends::implements>
+
+class exported arrayt: virtual public TImplements, public TExtends {
+public:
+    typedef TImplements implements;
+    typedef TExtends extends;
+    typedef arrayt derives;
+
+    typedef TWhat what_t;
+    enum { default_size = VDefaultSize };
+
+    /// constructor / destructor
+    arrayt(const what_t* elements, size_t length): extends(elements, length) {
+    }
+    arrayt(ssize_t length): extends(length) {
+    }
+    arrayt(const arrayt& copy): extends(copy) {
+    }
+    arrayt() {
+    }
+    virtual ~arrayt() {
+        this->clear();
+    }
+}; /// class arrayt
+
+typedef xos::array::implements array_implements;
+typedef xos::array::extends array_extends;
+
 } /// namespace base
+
 } /// namespace xos
 
 #endif /// ndef XOS_BASE_ARRAY_HPP 

@@ -16,7 +16,7 @@
 ///   File: reader.hpp
 ///
 /// Author: $author$
-///   Date: 3/10/2020, 8/24/2021
+///   Date: 3/10/2020, 9/1/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_IO_READER_HPP
 #define XOS_IO_READER_HPP
@@ -30,7 +30,7 @@ namespace io {
 template <class TImplements = sequence>
 class exported readert: virtual public TImplements {
 public:
-    typedef TImplements implements;
+    typedef TImplements Implements, implements;
 
     typedef typename implements::what_t what_t;
     typedef typename implements::sized_t sized_t;
@@ -56,7 +56,7 @@ typedef readert<word_seeker> word_reader;
 template <class TSeeker = char_seeker, class TImplements = readert<TSeeker> >
 class exported char_readert: virtual public TImplements {
 public:
-    typedef TImplements implements;
+    typedef TImplements Implements, implements;
 
     typedef typename implements::what_t what_t;
     typedef typename implements::sized_t sized_t;

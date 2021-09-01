@@ -16,7 +16,7 @@
 ///   File: string.hpp
 ///
 /// Author: $author$
-///   Date: 12/5/2019, 7/13/2021
+///   Date: 12/5/2019, 9/1/2021
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_BASE_STRING_HPP
 #define XOS_BASE_STRING_HPP
@@ -26,6 +26,8 @@
 #include <locale>
 #include <string>
 #include <sstream>
+
+#define XOS_STRING_DEFAULT_SIZE 128
 
 namespace xos {
 
@@ -285,6 +287,7 @@ typedef stringt<> string;
 typedef stringt<char> char_string;
 typedef stringt<tchar_t> tchar_string;
 typedef stringt<wchar_t> wchar_string;
+typedef stringt<byte_t> byte_string;
 
 /// class string_to_string
 template <typename TString, class TExtends, class TImplements = typename TExtends::implements>
@@ -376,7 +379,7 @@ typedef string_to_string<char_string, wchar_string> to_wchar_string;
 namespace based {
 /// class stringt
 template 
-<typename TChar = char, size_t VDefaultSize = 128,
+<typename TChar = char, size_t VDefaultSize = XOS_STRING_DEFAULT_SIZE,
  typename TEndChar = TChar, TEndChar VEndChar = 0,
  class TExtends = extend, class TImplements = implement>
 class exported stringt: virtual public TImplements, public TExtends {
@@ -640,8 +643,17 @@ typedef stringt<> string;
 
 namespace base {
 
+typedef xos::char_string::implements string_implements;
 typedef xos::char_string::extends string_extends;
+
+typedef xos::tchar_string::implements tstring_implements;
+typedef xos::tchar_string::extends tstring_extends;
+
+typedef xos::wchar_string::implements wstring_implements;
 typedef xos::wchar_string::extends wstring_extends;
+
+typedef xos::byte_string::implements bstring_implements;
+typedef xos::byte_string::extends bstring_extends;
 
 /// class stringt
 template 
@@ -755,7 +767,126 @@ public:
 }; /// class stringt
 typedef stringt<> string;
 
+typedef stringt<tchar_t> tstring;
+typedef stringt<wchar_t> wstring;
+typedef stringt<byte_t> bstring;
+
+/// class string_baset
+template 
+<typename TChar = char, size_t VDefaultSize = XOS_STRING_DEFAULT_SIZE,
+ typename TEndChar = TChar, TEndChar VEndChar = 0,
+ class TExtends = xos::based::stringt<TChar, VDefaultSize, TEndChar, VEndChar>, 
+ class TImplements = implement>
+class exported string_baset: virtual public TImplements, public TExtends {
+public:
+    typedef TImplements Implements,implements;
+    typedef TExtends Extends, extends;
+    typedef string_baset Derives, derives;
+
+    typedef typename extends::char_t sized_t;
+    typedef typename extends::char_t what_t;
+    typedef typename extends::char_t char_t;
+    typedef typename extends::end_char_t end_char_t, end_t;
+    enum { end_char = extends::end_char, end = extends::end_char };
+
+    /// constructor / destructor
+    string_baset(const char* chars, size_t length) {
+        this->append(chars, length);
+    }
+    string_baset(const wchar_t* chars, size_t length) {
+        this->append(chars, length);
+    }
+    string_baset(const char* chars) {
+        this->append(chars);
+    }
+    string_baset(const wchar_t* chars) {
+        this->append(chars);
+    }
+    string_baset(const extends& copy): extends(copy) {
+    }
+    string_baset(const string_baset& copy): extends(copy) {
+    }
+    string_baset() {
+    }
+    virtual ~string_baset() {
+    }
+
+    // wchar_t
+    /// assign...
+    using extends::assign;
+    virtual string_baset& assign(const wchar_t* chars) {
+        this->clear();
+        this->append(chars);
+        return *this;
+    }
+    virtual string_baset& assign(const wchar_t* chars, size_t length) {
+        this->clear();
+        this->append(chars);
+        return *this;
+    }
+    virtual string_baset& assignl(const wchar_t* chars, ...) {
+        this->clear();
+        if ((chars)) {
+            va_list va;
+            va_start(va, chars);
+            this->appendv(chars, va);
+            va_end(va);
+        }
+        return *this;
+    }
+    virtual string_baset& assignv(const wchar_t* chars, va_list va) {
+        this->clear();
+        if ((chars)) {
+            this->appendv(chars, va);
+        }
+        return *this;
+    }
+    /// append...
+    using extends::append;
+    virtual string_baset& append(const wchar_t* chars) {
+        if ((chars)) {
+            for (wchar_t c = *chars; c != 0; c = *(++chars)) {
+                char_t tc = ((char_t)c);
+                extends::append(&tc, 1);
+            }
+        }
+        return *this;
+    }
+    virtual string_baset& append(const wchar_t* chars, size_t length) {
+        if ((chars) && (length)) {
+            for (; length > 0; --length, ++chars) {
+                char_t tc = ((char_t)(*chars));
+                extends::append(&tc, 1);
+            }
+        }
+        return *this;
+    }
+    virtual string_baset& appendl(const wchar_t* chars, ...) {
+        if ((chars)) {
+            va_list va;
+            va_start(va, chars);
+            this->appendv(chars, va);
+            va_end(va);
+        }
+        return *this;
+    }
+    virtual string_baset& appendv(const wchar_t* chars, va_list va) {
+        if ((chars)) {
+            do {
+                this->append(chars);
+            } while ((chars = va_arg(va, const wchar_t*)));
+        }
+        return *this;
+    }
+}; /// class string_baset
+typedef string_baset<> string_base;
+
+typedef string_baset<tchar_t> tstring_base;
+typedef string_baset<wchar_t> wstring_base;
+typedef string_baset<byte_t> bstring_base;
+
 } /// namespace base
+
 } /// namespace xos
 
 #endif /// ndef XOS_BASE_STRING_HPP
