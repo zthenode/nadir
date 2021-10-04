@@ -20,9 +20,10 @@
 ///////////////////////////////////////////////////////////////////////
 #include "xos/app/console/nadir/main.hpp"
 
-#if !defined(XOS_APP_CONSOLE_NADIR_MAIN_INSTANCE)
-//#define XOS_APP_CONSOLE_NADIR_MAIN_INSTANCE
-#endif /// !defined(XOS_APP_CONSOLE_NADIR_MAIN_INSTANCE)
+#if defined(XOS_CONSOLE_MAIN_MAIN)
+#include "xos/console/main_main.cpp"
+#define XOS_APP_CONSOLE_NADIR_MAIN_INSTANCE
+#endif /// defined(XOS_CONSOLE_MAIN_MAIN)
 
 namespace xos {
 namespace app {
