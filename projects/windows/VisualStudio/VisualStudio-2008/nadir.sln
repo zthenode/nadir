@@ -1,0 +1,55 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{18ED6B54-2432-11EC-930A-552CE0A19063}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{18ED722A-2432-11EC-930A-ED4E90E40903}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "properties", "properties", "{18ED76C6-2432-11EC-930A-3D4D5540B3CC}"
+	ProjectSection(SolutionItems) = preProject
+		..\crono.vsprops = ..\crono.vsprops
+		..\fila.vsprops = ..\fila.vsprops
+		..\nadir.vsprops = ..\nadir.vsprops
+		..\rostra.vsprops = ..\rostra.vsprops
+		..\vcproj.vsprops = ..\vcproj.vsprops
+		vcversion.vsprops = vcversion.vsprops
+		..\windows.vsprops = ..\windows.vsprops
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libnadir", "libnadir\libnadir.vcproj", "{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nadir", "nadir\nadir.vcproj", "{7BD42451-CCE8-4274-95CC-CCFA64DC415B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58} = {6C678B3D-B9D6-4E51-8DA3-6370797BCB58}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Debug|Win32.Build.0 = Debug|Win32
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Debug|x64.ActiveCfg = Debug|x64
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Debug|x64.Build.0 = Debug|x64
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Release|Win32.ActiveCfg = Release|Win32
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Release|Win32.Build.0 = Release|Win32
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Release|x64.ActiveCfg = Release|x64
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58}.Release|x64.Build.0 = Release|x64
+		{7BD42451-CCE8-4274-95CC-CCFA64DC415B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7BD42451-CCE8-4274-95CC-CCFA64DC415B}.Debug|Win32.Build.0 = Debug|Win32
+		{7BD42451-CCE8-4274-95CC-CCFA64DC415B}.Debug|x64.ActiveCfg = Debug|Win32
+		{7BD42451-CCE8-4274-95CC-CCFA64DC415B}.Release|Win32.ActiveCfg = Release|Win32
+		{7BD42451-CCE8-4274-95CC-CCFA64DC415B}.Release|Win32.Build.0 = Release|Win32
+		{7BD42451-CCE8-4274-95CC-CCFA64DC415B}.Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BD42451-CCE8-4274-95CC-CCFA64DC415B} = {18ED6B54-2432-11EC-930A-552CE0A19063}
+		{6C678B3D-B9D6-4E51-8DA3-6370797BCB58} = {18ED722A-2432-11EC-930A-ED4E90E40903}
+	EndGlobalSection
+EndGlobal

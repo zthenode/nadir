@@ -126,4 +126,6 @@ $${nadir_FRAMEWORKS} \
 nadir_exe_LIBS += \
 $${nadir_LIBS} \
 
-
+########################################################################
+# NO Qt
+QT -= gui core
