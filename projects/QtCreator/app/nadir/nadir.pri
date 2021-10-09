@@ -81,7 +81,6 @@ $${CRONO_SRC}/xos/console/logger.hpp \
 \
 $${NADIR_SRC}/xos/console/io.hpp \
 $${NADIR_SRC}/xos/console/main.hpp \
-$${NADIR_SRC}/xos/console/main_main.hpp \
 $${NADIR_SRC}/xos/console/getopt/main_opt.hpp \
 $${NADIR_SRC}/xos/console/getopt/main.hpp \
 \
@@ -109,8 +108,6 @@ $${CRONO_SRC}/xos/logger/location.cpp \
 $${CRONO_SRC}/xos/logger/message.cpp \
 $${CRONO_SRC}/xos/logger/implement.cpp \
 $${CRONO_SRC}/xos/logger/defines.cpp \
-\
-$${NADIR_SRC}/xos/console/main_main.cpp \
 \
 $${NADIR_SRC}/xos/app/console/nadir/main_opt.cpp \
 $${NADIR_SRC}/xos/app/console/nadir/main.cpp \
